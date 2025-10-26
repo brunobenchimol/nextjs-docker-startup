@@ -1,6 +1,3 @@
-// Importar 'os' para funções de Sistema Operacional
-import os from "os";
-
 /**
  * Define que este módulo DEVE executar no runtime Node.js
  * e não no Edge runtime. Isso nos dá acesso a 'process', 'os', 'fs', etc.
@@ -12,6 +9,12 @@ export const runtime = 'nodejs';
  * exatamente uma vez no startup do servidor.
  */
 export async function register() {
+
+  // Importamos 'os' aqui dentro, usando um import dinâmico.
+  // Como 'register' só executa no Node.js, isto é seguro
+  // e o 'build' do Edge Runtime não vai reclamar.
+  const os = (await import('os')).default;
+  
   console.log("==================================================");
   console.log("🧩 [Startup] Verificação de ambiente do Next.js 15");
 
