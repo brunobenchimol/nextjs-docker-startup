@@ -30,7 +30,7 @@ ENV NODE_ENV=production
 # Copia os ficheiros de dependência da etapa 'builder'
 # (package.json é necessário para o npm ci)
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/package-lock.json* ./package-lock.json*
+COPY --from=builder /app/package-lock.json ./package-lock.json
 
 # Instala APENAS as dependências de produção
 RUN npm ci --omit=dev
