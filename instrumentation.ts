@@ -13,7 +13,7 @@ export const runtime = 'nodejs';
  */
 export async function register() {
   console.log("==================================================");
-  console.log("🧩 [Startup] Verificação de ambiente do Next.js");
+  console.log("🧩 [Startup] Verificação de ambiente do Next.js 15");
 
   // O seu código de diagnóstico
   try {
@@ -24,7 +24,6 @@ export async function register() {
     console.log("Arquitetura:", os.arch()); // Ex: 'x64'
     console.log("✔️ Ambiente inicializado com runtime Node.js\n");
   } catch (err) {
-    // Se 'runtime = nodejs' estiver definido, isso não deve falhar.
     if (err instanceof Error) {
         console.warn("Falha ao ler detalhes do processo:", err.message);
     } else {
@@ -36,8 +35,6 @@ export async function register() {
   console.log("Verificando variáveis de ambiente...");
   if (!process.env.TESTADOR_API_URL) {
     console.error("[ERRO FATAL] TESTADOR_API_URL não está definida!");
-    // Em um cenário real, você poderia querer parar o servidor:
-    // process.exit(1); 
   } else {
     console.log("✔️ TESTADOR_API_URL: Definida.");
   }
