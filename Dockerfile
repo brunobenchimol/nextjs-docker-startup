@@ -49,4 +49,5 @@ EXPOSE 3000
 USER 1001
 
 # O comando para iniciar o servidor Next.js (standalone)
-CMD ["node", "server.js"]
+#CMD ["node", "server.js"]
+CMD ["npm", "run", "start"]
